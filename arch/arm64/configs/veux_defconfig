@@ -764,3 +764,6 @@ CONFIG_BOEFFLA_WL_BLOCKER=y
 
 # enable mm plu hack
 CONFIG_OPLUS_MM_HACKS=y
+
+# enable BBG
+CONFIG_BBG=y
