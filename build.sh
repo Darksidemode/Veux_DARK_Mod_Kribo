@@ -8,9 +8,11 @@ drive.mount('/content/drive')
 # 3. Setup Environment & Path
 import os
 os.environ['PATH'] = "/content/clang-r547379/bin:" + os.environ['PATH']
-# 4. Masuk ke folder kernel
+# 4. Masuk ke folder kernel dan setup BBG
 %cd /content/Veux-Positron-Mod-Kribo
 !rm -rf out && rm -rf log.txt
+!wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
+!sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' security/Kconfig
 # 5. Variabel Konfigurasi
 DEFCONFIG = "veux_defconfig"
 # Folder tujuan di Google Drive (akan dibuat jika belum ada)
