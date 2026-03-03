@@ -6984,15 +6984,19 @@ int kswapd_run(int nid)
 	if (pgdat->kswapd)
 		return 0;
 
+	/* --- MATIKAN KSHRINKD (FIX BOOTLOOP MGLRU) --- */
+	/*
 	pgdat->kshrinkd = kthread_run(kshrinkd, pgdat, "kshrinkd%d", nid);
 	if (IS_ERR(pgdat->kshrinkd)) {
-		/* failure at boot is fatal */
 		BUG_ON(system_state < SYSTEM_RUNNING);
 		pr_err("Failed to start kshrinkd on node %d\n", nid);
 		ret = PTR_ERR(pgdat->kshrinkd);
 		pgdat->kshrinkd = NULL;
 		return ret;
 	}
+	*/
+	pgdat->kshrinkd = NULL; 
+	/* --------------------------------------------- */
 
 	pgdat->kswapd = kthread_run(kswapd, pgdat, "kswapd%d", nid);
 	if (IS_ERR(pgdat->kswapd)) {
@@ -7001,8 +7005,11 @@ int kswapd_run(int nid)
 		pr_err("Failed to start kswapd on node %d\n", nid);
 		ret = PTR_ERR(pgdat->kswapd);
 		pgdat->kswapd = NULL;
-		kthread_stop(pgdat->kshrinkd);
-		pgdat->kshrinkd = NULL;
+		
+		/* --- MATIKAN JUGA ERROR HANDLER-NYA --- */
+		// kthread_stop(pgdat->kshrinkd);
+		// pgdat->kshrinkd = NULL;
+		/* -------------------------------------- */
 	}
 	return ret;
 }
