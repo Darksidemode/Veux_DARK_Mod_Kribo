@@ -1,7 +1,7 @@
 qcom,ATL436186_020H_3780mAh {
 	/* ATL436186_020H_3780mAh_Averaged_MasterSlave_Feb25th2020 */
-	qcom,max-voltage-uv = <4400000>;
-	qcom,fg-cc-cv-threshold-uv = <4400000>;
+	qcom,max-voltage-uv = <4310000>;
+	qcom,fg-cc-cv-threshold-uv = <4300000>;
 	qcom,fastchg-current-ma = <10000>;
 	qcom,batt-id-kohm = <39>;
 	qcom,battery-beta = <4250>;
