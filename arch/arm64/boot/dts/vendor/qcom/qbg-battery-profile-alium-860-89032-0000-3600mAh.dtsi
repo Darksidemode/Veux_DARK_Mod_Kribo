@@ -2,7 +2,7 @@ qcom,qbg-battery-profile-alium-860-89032-0000-3600mAh {
 	qcom,battery-type = "ALIUM_860_89032_0000_3600MAH";
 	qcom,batt-id-kohm = <107>;
 	qcom,capacity = <3588>;
-	qcom,max-voltage-uv = <4350000>;
+	qcom,max-voltage-uv = <4310000>;
 	qcom,fastchg-current-ma = <3600>;
 	qcom,checksum = <4563678>; /*@5, 0.005V, 10% */
 	qcom,soh-range = <0 100>;
