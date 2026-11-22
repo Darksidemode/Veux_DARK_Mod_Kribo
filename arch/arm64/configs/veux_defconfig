@@ -740,10 +740,9 @@ CONFIG_BUG_ON_DATA_CORRUPTION=y
 # CONFIG_UBSAN_ENUM is not set
 
 # ksu-next, susfs, with manual hook and disable kprobe
-# CONFIG_KPROBES is not set
+CONFIG_KPROBES=y
 # CONFIG_KPROBE_EVENTS is not set
 CONFIG_KSU=y
-CONFIG_KSU_SUSFS=y
 
 # enable kallsyms for kernel-patch user
 CONFIG_KALLSYMS=y
